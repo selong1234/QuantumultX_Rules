@@ -1,0 +1,38 @@
+#!name=微信小程序去广告（分流）
+#!desc=车来了广告/埋点域名的整域拒绝，以及微信小程序通用域名
+#!author=本地整理（整合 zirawell/R-Store 与 QingRex 规则）
+#!homepage=https://github.com/zirawell/R-Store
+#!date=2025-10-19
+#!proxy-select=reject
+
+# ======================================================================================
+# 一、车来了 —— 整域拒绝
+#     这几个域名只承载广告、埋点和日志，整域 reject 不会影响实时公交数据
+# ======================================================================================
+host, ad.chelaile.net.cn, reject
+host, atrace.chelaile.net.cn, reject
+host, logs.chelaile.net.cn, reject
+
+# ======================================================================================
+# 二、微信小程序通用
+# ======================================================================================
+# 小程序激励视频贴片广告域名，仅承载广告素材。
+# 注意：若发现某个小程序的正常视频播放异常，把下面这行注释掉再试
+host-suffix, wxsmsdy.video.qq.com, reject
+
+# ======================================================================================
+# 三、广告联盟 —— 默认全部关闭
+#     小程序常见广告 SDK（优量汇/穿山甲/快手/SigMob 等）域名。
+#     需要时逐条取消注释；注意部分小程序本身即由这些 SDK 的宿主驱动，
+#     一刀切可能出现白屏，建议按需开启。
+# ======================================================================================
+# host, mi.gdt.qq.com, reject
+# host-suffix, e.qq.com, reject
+# host-suffix, gdt.qq.com, reject
+# host-suffix, pangolin-sdk-toutiao.com, reject
+# host-suffix, csjplatform.com, reject
+# host-suffix, pangle.io, reject
+# host-suffix, kuaishouad.com, reject
+# host, adservice.sigmob.cn, reject
+# host-suffix, mintegral.com, reject
+# host-suffix, umeng.com, reject
